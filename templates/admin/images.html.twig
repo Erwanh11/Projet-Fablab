@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Administration des images{% endblock %}
+
+{% block body %}
+    <h1>Administration des images</h1>
+
+    <h2>Ajouter une image</h2>
+
+    {{ form_start(form) }}
+        {{ form_row(form.fichier) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.description) }}
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    {{ form_end(form) }}
+
+    <hr>
+
+    <h2>Liste des images</h2>
+
+    {% if images is empty %}
+        <p>Aucune image pour le moment.</p>
+    {% else %}
+        <div class="row">
+            {% for image in images %}
+                <div class="col-md-3">
+                    <div class="card mb-3">
+                        <img src="{{ asset('img/' ~ image.nom) }}" alt="{{ image.description }}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ image.nom }}</h5>
+                            <p class="card-text">{{ image.description }}</p>
+                            <a href="#" class="btn btn-danger">Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez nous{% endblock %}
+{% block body %}
+<section class="row">
+  <div class="col-md-7 d-flex tm-contact-left-col">
+    <div class="tm-bg-primary tm-contact-left">
+      <div class="tm-contact-left-inner">
+        <h2 class="text-center tm-mb-40 tm-contact-header">CONTACT</h2>
+        <p class="tm-line-height-2 mb-5">Etiam congue tempor risus, id porta massa laoreet at. Nunc risus elit, porttitor sit amet sem.</p>
+        <div class="mb-2 tm-font-normal">
+          Tel: <a href="tel:0900900990" class="mt-5 tm-contact-link">090-090-0990</a>
+        </div>
+        <div class="mb-2 tm-font-normal">
+          Fax: <a href="tel:0800800880" class="tm-contact-link">080-080-0880</a>
+        </div>
+        <div class="mb-2 tm-font-normal">
+          Email: <a href="mail:info@company.com" class="tm-contact-link">info@company.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    {{ form_start(form) }}
+{{ form_errors(form) }}
+
+<div class="form-group mb-4">
+    {{ form_label(form.Name) }}
+    {{ form_widget(form.Name, {'attr': {'class': 'form-control', 'placeholder': 'Name', 'required': 'required'}}) }}
+</div>
+
+<div class="form-group mb-4">
+    {{ form_label(form.Email) }}
+    {{ form_widget(form.Email, {'attr': {'class': 'form-control', 'placeholder': 'Email', 'required': 'required', 'type': 'email'}}) }}
+</div>
+
+<div class="form-group mb-4">
+    {{ form_label(form.Message) }}
+    {{ form_widget(form.Message, {'attr': {'class': 'form-control', 'placeholder': 'Message', 'required': 'required', 'rows': 6}}) }}
+</div>
+
+<div class="form-group mb-0">
+  <button type="submit" class="btn btn-primary tm-btn-round tm-fl-right">Envoyer</button>
+</div>
+
+{{ form_end(form) }}
+  </div>
+</section>
+<footer class="pt-4 pb-4">
+  <p class="text-center tm-text-light-dark">Copyright &copy; 2023 FLOW 2THOUSAND 
+  
+  | Design: Erwan Hamza</p>
+</footer>
+   
+{% endblock %}
